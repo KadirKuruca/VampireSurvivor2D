@@ -7,9 +7,13 @@
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -10.0
 offset_right = 1913.0
-offset_bottom = 1080.0
+offset_bottom = 1085.0
 
 [node name="Player" parent="." instance=ExtResource("1_vidf1")]
 position = Vector2(943, 553)
