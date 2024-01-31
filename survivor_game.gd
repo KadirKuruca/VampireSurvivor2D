@@ -14,8 +14,7 @@ func _on_timer_timeout():
 	
 
 func _on_player_health_depleted():
-	%GameOver.visible = true
-	get_tree().paused = true
+	SceneSwitcher.change_scene("res://game_over.tscn", {"score":score})
 	
 func _on_mob_died():
 	score += 1

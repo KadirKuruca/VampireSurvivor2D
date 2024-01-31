@@ -64,9 +64,9 @@ autostart = true
 [node name="Mob" parent="." instance=ExtResource("3_052yi")]
 visible = false
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="ScoreCanvas" type="CanvasLayer" parent="."]
 
-[node name="Score" parent="CanvasLayer2" instance=ExtResource("4_puv2i")]
+[node name="Score" parent="ScoreCanvas" instance=ExtResource("4_puv2i")]
 unique_name_in_owner = true
 position = Vector2(667, 0)
 
