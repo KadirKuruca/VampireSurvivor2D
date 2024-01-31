@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var health = 3
 @onready var player = get_node("/root/Game/Player")
+signal mob_died
 
 func _ready():
 	%Slime.play_walk()
@@ -17,6 +18,7 @@ func take_damage():
 	%Slime.play_hurt()
 		
 	if health == 0:
+		mob_died.emit()
 		queue_free()
 		smoke_explosion()
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfx1ov0ns3jx7"]
+[gd_scene load_steps=7 format=3 uid="uid://cfx1ov0ns3jx7"]
 
 [ext_resource type="Script" path="res://survivor_game.gd" id="1_v2872"]
 [ext_resource type="PackedScene" uid="uid://dxf4oww8dhykx" path="res://player.tscn" id="1_vidf1"]
 [ext_resource type="PackedScene" uid="uid://bk07qww2c4b7m" path="res://pine_tree.tscn" id="2_14qlh"]
+[ext_resource type="PackedScene" uid="uid://7kbqvw2vgeih" path="res://mob.tscn" id="3_052yi"]
+[ext_resource type="PackedScene" uid="uid://d1mmodxiidc80" path="res://score.tscn" id="4_puv2i"]
 
 [sub_resource type="Curve2D" id="Curve2D_q7400"]
 _data = {
@@ -59,6 +61,15 @@ position = Vector2(464, 901)
 wait_time = 0.3
 autostart = true
 
+[node name="Mob" parent="." instance=ExtResource("3_052yi")]
+visible = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Score" parent="CanvasLayer2" instance=ExtResource("4_puv2i")]
+unique_name_in_owner = true
+position = Vector2(667, 0)
+
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -91,3 +102,4 @@ vertical_alignment = 1
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mob_died" from="Mob" to="." method="_on_mob_mob_died"]
